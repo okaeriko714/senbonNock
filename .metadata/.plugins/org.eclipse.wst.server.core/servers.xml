@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<servers>
+  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/localhost の Tomcat10 (Java17)-config" deployDir="wtpwebapps" hostname="localhost" id="localhost の Tomcat10 (Java17)" name="localhost の Tomcat10 (Java17)" runtime-id="Tomcat10 (Java17)" server-type="org.eclipse.jst.server.tomcat.101" server-type-id="org.eclipse.jst.server.tomcat.101" start-timeout="60" stop-timeout="15" testEnvironment="true" timestamp="4">
+    <list key="modules" value0="senbonNock::org.eclipse.jst.jee.server:senbonNock::jst.web::6.0"/>
+  </server>
+  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/localhost での Tomcat10 (Java17) (2)-config" deployDir="wtpwebapps" hostname="localhost" id="localhost での Tomcat10 (Java17) (2)" name="localhost での Tomcat10 (Java17) (2)" runtime-id="Tomcat10 (Java17)" server-type="org.eclipse.jst.server.tomcat.101" server-type-id="org.eclipse.jst.server.tomcat.101" start-timeout="60" stop-timeout="15" testEnvironment="true" timestamp="2">
+    <list key="modules" value0="senbonNock::org.eclipse.jst.jee.server:senbonNock::jst.web::6.0"/>
+  </server>
+</servers>

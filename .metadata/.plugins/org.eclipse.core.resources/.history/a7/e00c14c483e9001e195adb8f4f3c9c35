@@ -1,0 +1,50 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>掲示板一覧画面</title>
+</head>
+<body>
+	<div align="center">
+		<h1>掲示板一覧画面</h1>
+		<form action="<c:url value="/messageBoardList"/>" method="POST">
+			<table>
+				<tr>
+					<td>タイトル(全角20字以内)</td>
+					<td><input type="text" name="title"></td>
+				</tr>
+				<tr>
+					<td>投稿内容(100字以内)</td>
+					<td><input type="text" name="content"></td>
+				</tr>
+			</table>
+			</br> <input type="hidden" name="backAnchorName" value="2-1"> <input
+				type="submit" value="送信">
+		</form>
+
+
+		<h1>Display Data Example</h1>
+		<%
+		// データがデータベースなどから取得されたと仮定します
+		String storedData = "これは格納されたデータです。";
+
+		// データが空でない場合のみ表示
+		if (storedData != null && !storedData.isEmpty()) {
+		%>
+		<p>
+			<strong>格納されたデータ:</strong>
+			<%=storedData%></p>
+		<%
+		} else {
+		%>
+		<p>データはありません。</p>
+		<%
+		}
+		%>
+	</div>
+
+</body>
+</html>

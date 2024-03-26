@@ -1,0 +1,52 @@
+/**
+ * 掲示板リスト画面でのリクエストを処理する。
+ */
+
+package com.sample.message.servlet;
+
+
+
+import java.io.IOException;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+
+
+
+//掲示板リスト画面でのリクエストを処理する
+public class MessageBoardListServlet extends HttpServlet {
+
+		protected void doPost(HttpServletRequest request, HttpServletResponse response)
+				throws IOException, ServletException {
+			
+			//リクエストパラメーターの取得
+			
+			
+			
+			//リクエストオブジェクトに○○データを格納
+			
+			
+			//エンコーディング方式の指定
+			request.setCharacterEncoding("UTF-8");
+//	        String flag = request.getParameter("flag");
+		
+			//入力パラメータの取り出し
+			String name = request.getParameter();
+			
+			//セッションオブジェクト生成
+			HttpSession session = request.getSession();
+			
+			//セッションオブジェクトに名前を格納
+			session,setAttribute();
+			
+			
+	
+			// フォワード（画面遷移）する。
+			 request.getRequestDispatcher("jsp/menu.jsp").forward(request, response);
+		  
+		}
+		
+}

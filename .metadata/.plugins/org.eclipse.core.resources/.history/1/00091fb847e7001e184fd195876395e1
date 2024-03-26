@@ -1,0 +1,43 @@
+/**
+ *掲示板一覧画面での業務処理を担当するクラス
+ * 
+ */
+package com.sample.message.business;
+
+import java.sql.Connection;
+import java.util.List;
+
+import com.sample.message.bean.MessageBean;
+import com.sample.message.bean.MessageBoardListBean;
+
+public class MessageBoardBusinessLogic {
+
+	//メッセージを登録する
+	public void registerMessage (MessageBoardListBean bean) {
+		
+	}
+	//メッセージを検索する
+	//throwsでエラー投げるべきかも
+	public List<MessageBean> searchMessage() {
+		Connection con = null;
+		Message message = null;
+		
+		try {
+			//データベースの接続を取得する
+			con = ConnectionManager.getConection();
+					
+			//メッセージテーブルアクセス用のDAOを生成し、メソッドを呼び出す。
+			MessageDAO messageDAO = new MesssageDAO(con);
+			message = messageDAO.findMessage();
+			
+			//検索結果がない場合、エラーを発生させる。
+			if(message == null) {
+				
+			}
+			
+		}
+		
+		return 
+				
+	}
+}

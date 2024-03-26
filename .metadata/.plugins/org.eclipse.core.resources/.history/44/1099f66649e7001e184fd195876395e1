@@ -1,0 +1,84 @@
+/**
+ *掲示板一覧画面での業務処理を担当するクラス
+ * 
+ */
+package com.sample.message.business;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.List;
+
+import com.sample.message.bean.MessageBean;
+import com.sample.message.bean.MessageBoardListBean;
+import com.sample.message.common.DBManager;
+import com.sample.message.dao.MessageDao;
+
+public class MessageBoardBusinessLogic {
+
+	//メッセージを登録する
+	public void registerMessage (MessageBoardListBean bean) {
+		Connection con = null;
+		Message message = null;
+		
+		try {
+			//データベースの接続を取得する
+			con = DBManager.getConnection();
+					
+			//メッセージテーブルアクセス用のDAOを生成し、メソッドを呼び出す。
+			MessageDao messageDao = new MesssageDao(con);
+			message = messageDao.getMessageList();
+			
+			//検索結果がない場合、エラーを発生させる。
+			//今回は発生させない
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally{
+			try {
+				if(con != null) {
+					con.close();
+				}
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
+		}
+
+		
+		return message;
+		
+	}
+
+	//メッセージを検索する
+	//throwsでエラー投げるべきかも
+	public List<MessageBean> searchMessage() {
+		Connection con = null;
+		Message message = null;
+		
+		try {
+			//データベースの接続を取得する
+			con = ConnectionManager.getConection();
+					
+			//メッセージテーブルアクセス用のDAOを生成し、メソッドを呼び出す。
+			MessageDao messageDao = new MesssageDaocon);
+			message = messageDao.findMessage();
+			
+			//検索結果がない場合、エラーを発生させる。
+			//今回は発生させない
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally{
+			try {
+				if(con != null) {
+					con.close();
+				}
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
+		}
+
+		
+		return message;
+				
+	}
+}

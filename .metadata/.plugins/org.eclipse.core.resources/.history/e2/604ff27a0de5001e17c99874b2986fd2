@@ -1,0 +1,21 @@
+/**
+ * 掲示板メッセージテーブルのレコード情報を表すEntityクラス
+ */
+
+package com.sample.message.dao;
+
+public class MessageEntity {
+
+	//タイトル
+	private String title;
+	//内容
+	private String name;
+	//登録日時
+	private Timestamp registerDate;
+	
+	//
+	//
+	//
+	//
+	
+}

@@ -1,0 +1,15 @@
+/**
+ *掲示板一覧画面での業務処理を担当するクラス
+ * 
+ */
+package com.sample.message.business;
+
+public class MessageBoardBusinessLogic {
+
+	//メッセージを登録する
+	public void registerMessage (MessageBoadListBean bean) {
+		
+	}
+	//メッセージを検索する
+
+}

@@ -1,0 +1,52 @@
+/**
+ *DB接続を管理するためのクラス
+ */
+
+package com.sample.message.common;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class DBManager {
+	private static DBManager instance; // インスタンス
+
+	//データベース接続先
+	private static final String URL = "jdbc:mysql://localhost/mysql";
+	//ユーザ名
+	private static final String USER = "root@localhost";
+	//パスワード名
+	private static final String PASSWORD = "password";
+
+	//データベースの接続
+	public static Connection getConnection() throws SQLException {
+		Connection con = null;
+		try {
+			con = DriverManager.getConnection(URL, USER, PASSWORD);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw e;
+		}
+		return con;
+	}
+
+	public static DBManager getInstance() {
+
+		if (instance == null) {
+			instance = new DBManager(); // インスタンスが存在しない場合、新しいインスタンスを作成
+		}
+		return instance; // 既存のインスタンスを返す
+	}
+
+	public void close(Connection connection) {
+	        if (connection != null) {
+	            try {
+	                connection.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	                // エラーハンドリング
+	            }
+	        }
+
+	}
+}

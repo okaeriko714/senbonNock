@@ -1,0 +1,9 @@
+/**
+ * 掲示板一覧画面のメッセージ一件分の情報を表すJavaBeanクラス
+ */
+
+package com.sample.message.bean;
+
+public class MessageBean {
+
+}

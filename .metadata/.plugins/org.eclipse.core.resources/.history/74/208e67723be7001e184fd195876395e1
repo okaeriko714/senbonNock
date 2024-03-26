@@ -1,0 +1,31 @@
+/**
+ *DB接続を管理するためのクラス
+ */
+
+
+package com.sample.message.common;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+public class DBManager {
+	//データベース接続先
+	private static final String URL = "";
+	//ユーザ名
+	private static final String USER = "";
+	//パスワード名
+	private static final String PASSWORD = "";
+	//データベースの接続
+	public static Connection getConnection() throws SQLException {
+		Connection con = null;
+		try {
+			con = DriverManager.getConnection(URL, USER, PASSWORD);
+		}catch(SQLException e) {
+			e.printStackTrace();
+			throw e;
+		}
+		return con;
+	}
+	
+	
+}

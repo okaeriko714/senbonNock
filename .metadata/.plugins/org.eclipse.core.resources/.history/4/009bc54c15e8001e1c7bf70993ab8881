@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+
+
+	<display-name>senbonNock</display-name>
+	<!-- フィルタの設定 -->
+	<filter>
+		<filter-name>EncodingFilter</filter-name>
+		<filter-class>com.example.EncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>EncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+
+	<!-- サーブレットの設定 -->
+	<servlet>
+		<servlet-name>messageBoardListServlet</servlet-name>
+		<servlet-class>servlet.MessageBoardList</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>messageBoardListServlet</servlet-name>
+		<url-pattern>/messageBoardLisstServlet</url-pattern>
+	</servlet-mapping>
+
+	<!-- HTTPステータスがエラーの時の画面遷移 -->
+	<!-- 今回は不要？ -->
+</web-app>

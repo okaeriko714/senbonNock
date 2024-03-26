@@ -1,0 +1,11 @@
+/**
+ * 掲示板一覧画面のメッセージ一件分の情報を表すJavaBeanクラス
+ */
+
+package com.sample.message.bean;
+
+import java.io.Serializable;
+
+public class MessageBean implements Serializable {
+
+}

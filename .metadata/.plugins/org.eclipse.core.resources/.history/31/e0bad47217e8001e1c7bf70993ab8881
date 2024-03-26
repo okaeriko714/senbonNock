@@ -1,0 +1,40 @@
+/**
+ * 掲示板リスト画面でのリクエストを処理する。
+ */
+
+package com.sample.message.servlet;
+
+
+//不要なインポートファイルがあると思われるので確認する。
+import java.io.IOException;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+
+
+
+//掲示板リスト画面でのリクエストを処理する
+public class MessageBoardListServlet extends HttpServlet {
+
+		protected void doPost(HttpServletRequest request, HttpServletResponse response)
+				throws IOException, ServletException {
+			
+			//○○データの取得
+			
+			//エンコーディング方式の指定
+			request.setCharacterEncoding("UTF-8");
+//	        String flag = request.getParameter("flag");
+		
+			//入力パラメータの取り出し
+			String name = request.getParameter();
+			
+			getServletContext().getRequestDispatcher(ServletSampleConstants.FORWARD_PATH_CALCULATION_RESULT).forward(request, response);
+			// 認証情報確認画面にフォワード（画面遷移）する。
+		    getServletContext().getRequestDispatcher(ServletSampleConstants.FORWARD_PATH_ACCESS_CONTROLLED).forward(request, response);
+		  }
+		}
+		
+}

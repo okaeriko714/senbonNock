@@ -1,0 +1,9 @@
+/**
+ * エンコーディング処理をするためのFilterクラス
+ */
+
+package com.sample.message.filter;
+
+public class EncodingFilter implements Fil{
+
+}
