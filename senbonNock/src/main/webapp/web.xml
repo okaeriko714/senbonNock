@@ -21,23 +21,23 @@
 
 
 	<!-- サーブレットの設定 -->
-	<servlet>
-		<servlet-name>messageBoardListServlet</servlet-name>
-		<servlet-class>servlet.MessageBoardListServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>messageBoardListServlet</servlet-name>
-		<url-pattern>/messageBoardList</url-pattern>
-	</servlet-mapping>
+<!--	<servlet>-->
+<!--		<servlet-name>messageBoardListServlet</servlet-name>-->
+<!--		<servlet-class>servlet.MessageBoardListServlet</servlet-class>-->
+<!--	</servlet>-->
+<!--	<servlet-mapping>-->
+<!--		<servlet-name>messageBoardListServlet</servlet-name>-->
+<!--		<url-pattern>/messageBoardList</url-pattern>-->
+<!--	</servlet-mapping>-->
 
 	<!-- HTTPステータスがエラーの時の画面遷移 -->
 	<!-- 今回は不要？ -->
 	<error-page>
 		<error-code>401</error-code>
-		<location>/jsp/defultMenu.jsp</location>
+		<location>/jsp/defaultMenu.jsp</location>
 	</error-page>
 
 	<welcome-file-list>
-		<welcome-file>/jsp/defultMenu.jsp</welcome-file>
+		<welcome-file>/jsp/defaultMenu.jsp</welcome-file>
 	</welcome-file-list>
 </web-app>

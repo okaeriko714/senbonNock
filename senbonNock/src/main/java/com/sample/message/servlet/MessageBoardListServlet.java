@@ -12,9 +12,12 @@ import com.sample.message.dao.MessageEntity;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
+@WebServlet("/messageBoardList")
 
 //掲示板リスト画面でのリクエストを処理する
 public class MessageBoardListServlet extends HttpServlet {

@@ -12,7 +12,7 @@ public class DBManager {
 	private static DBManager instance; // インスタンス
 
 	//データベース接続先
-	private static final String URL = "jdbc:mysql://localhost/mysql";
+	private static final String URL = "jdbc:mysql://localhost:3306/mysql";
 	//ユーザ名
 	private static final String USER = "root@localhost";
 	//パスワード名
@@ -25,6 +25,7 @@ public class DBManager {
 			con = DriverManager.getConnection(URL, USER, PASSWORD);
 		} catch (SQLException e) {
 			e.printStackTrace();
+			System.out.println("ここでエラー");
 			throw e;
 		}
 		return con;

@@ -15,5 +15,6 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="C:/Users/nishioka-eriko/OneDrive - FUJITSU/99_ダウンロード/jstl-api-1.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/nishioka-eriko/OneDrive - FUJITSU/99_ダウンロード/jstl-impl-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/nishioka-eriko/OneDrive - FUJITSU/99_ダウンロード/mysql-connector-j-8.3.0/mysql-connector-j-8.3.0/mysql-connector-j-8.3.0.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
