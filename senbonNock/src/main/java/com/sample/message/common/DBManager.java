@@ -12,17 +12,20 @@ public class DBManager {
 	private static DBManager instance; // インスタンス
 
 	//データベース接続先
-	private static final String URL = "jdbc:mysql://localhost:3306/mysql";
+	private static final String url = "jdbc:mysql://localhost:3306/freemarkndb";
 	//ユーザ名
-	private static final String USER = "root@localhost";
+	private static final String user = "mysql";
 	//パスワード名
-	private static final String PASSWORD = "password";
+	private static final String password = "mysql";
 
 	//データベースの接続
 	public static Connection getConnection() throws SQLException {
 		Connection con = null;
+		
 		try {
-			con = DriverManager.getConnection(URL, USER, PASSWORD);
+			 Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection(url, user, password);
+			System.out.println("DBへ接続成功！");
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("ここでエラー");
@@ -39,10 +42,10 @@ public class DBManager {
 		return instance; // 既存のインスタンスを返す
 	}
 
-	public void close(Connection connection) {
-	        if (connection != null) {
+	public void close(Connection con) throws SQLException {
+	        if (con != null) {
 	            try {
-	                connection.close();
+	                con.close();
 	            } catch (SQLException e) {
 	                e.printStackTrace();
 	                // エラーハンドリング

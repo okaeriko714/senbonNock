@@ -66,7 +66,8 @@ public class MessageDao {
 		stmt.setString(1, entity.getTitle());
 		stmt.setString(2, entity.getContent());
 		stmt.setTimestamp(3, entity.getRegisterDate());
-
+		
+		//SQL文の実行
 		ResultSet res = stmt.executeQuery();
 
 		//		try {
