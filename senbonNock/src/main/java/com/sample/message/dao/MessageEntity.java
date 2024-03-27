@@ -13,17 +13,17 @@ public class MessageEntity {
 	//内容
 	private String content;
 	//登録日時
-	private Timestamp registerDate;
+	private Timestamp registerdate;
 
 	//コンストラクタ？いる？
 	public MessageEntity() {
 	}
 
 	//コンストラクタ
-	public MessageEntity(String title, String content, Timestamp registerDate) {
+	public MessageEntity(String title, String content, Timestamp registerdate) {
 		this.title = title;
 		this.content = content;
-		this.registerDate = registerDate;
+		this.registerdate = registerdate;
 	}
 
 	public String getTitle() {
@@ -43,11 +43,11 @@ public class MessageEntity {
 	}
 
 	public Timestamp getRegisterDate() {
-		return registerDate;
+		return registerdate;
 	}
 
 	public void setRegisterDate(Timestamp registerDate) {
-		this.registerDate = registerDate;
+		this.registerdate = registerDate;
 	}
 
 }

@@ -57,7 +57,7 @@ public class MessageBoardBusinessLogic {
 
 			//メッセージテーブルアクセス用のDAOを生成し、メソッドを呼び出す。
 			MessageDao messageDao = new MessageDao(con);
-			messages = messageDao.getMessageList(con);
+			messages = messageDao.register(con,message);
 
 			//検索結果がない場合、エラーを発生させる。
 			//今回は発生させない

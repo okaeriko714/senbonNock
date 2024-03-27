@@ -31,6 +31,7 @@ public class MessageBoardListServlet extends HttpServlet {
 
 		//リクエストパラメータの取得
 		String title = request.getParameter("title");
+		
 		String content = request.getParameter("content");
 		//Timestamp registerDate  = request.getParameter("registerDate");
 		
@@ -44,6 +45,8 @@ public class MessageBoardListServlet extends HttpServlet {
 
         // すべてのメッセージを取得(メッセージ検索)
         List<MessageEntity> messages = MessageBoardBusinessLogic.searchMessage();
+	        System.out.println("サーブレットに戻ってきた!");
+	        System.out.println(messages);
         //メッセージを登録
         MessageBoardBusinessLogic.registerMessage();
         
@@ -56,6 +59,7 @@ public class MessageBoardListServlet extends HttpServlet {
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/defaultMenu.jsp");
 		dispatcher.forward(request, response);
+		System.out.println("フォワード");
 
 	}
 

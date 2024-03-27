@@ -12,24 +12,25 @@ public class DBManager {
 	private static DBManager instance; // インスタンス
 
 	//データベース接続先
-	private static final String url = "jdbc:mysql://localhost:3306/freemarkndb";
+	private static final String url = "jdbc:mysql://localhost:3306/senbonnock";
 	//ユーザ名
-	private static final String user = "mysql";
+	private static final String user = "root";
 	//パスワード名
-	private static final String password = "mysql";
+	private static final String password = "password";
 
 	//データベースの接続
 	public static Connection getConnection() throws SQLException {
 		Connection con = null;
 		
 		try {
-			 Class.forName("com.mysql.cj.jdbc.Driver");
+//			 #lass.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = DriverManager.getConnection(url, user, password);
 			System.out.println("DBへ接続成功！");
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("ここでエラー");
-			throw e;
+			System.out.println("ここでエラー！");
+//			throw e;
 		}
 		return con;
 	}
