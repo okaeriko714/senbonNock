@@ -65,15 +65,18 @@ public class MessageDao {
 	//メッセージ登録
 	public void register(Connection con, MessageEntity entity) throws SQLException {
 
-		String sql = "INSERT INTO MESSAGE VALUES(default,?,?,?)";
-		System.out.println("格納したメッセージを登録するSQL実行されたよ");
+		String sql = "INSERT INTO MESSAGE VALUES(default,?,?,CURRENT_TIME)";
+		System.out.println("格納したメッセージを登録するSQL実行されたよ!");
 		PreparedStatement stmt = con.prepareStatement(sql);
 		stmt.setString(1, entity.getTitle());
 		stmt.setString(2, entity.getContent());
-		stmt.setTimestamp(3, entity.getRegisterDate());
+		//stmt.setTimestamp(3, entity.getRegisterDate() );
+		
+		System.out.println(stmt);
 		
 		//SQL文の実行
-		ResultSet res = stmt.executeQuery();
+		int res = stmt.executeUpdate();
+		//stmt.setRegisterDate(res.getTimestamp("REGISTERDATE"));
 
 		//		try {
 		//			stmt = con.prepareStatement(sql);

@@ -46,8 +46,8 @@ public class MessageEntity {
 		return registerdate;
 	}
 
-	public void setRegisterDate(Timestamp registerDate) {
-		this.registerdate = registerDate;
+	public void setRegisterDate(Timestamp registerdate) {
+		this.registerdate = registerdate;
 	}
 
 }

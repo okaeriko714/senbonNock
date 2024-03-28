@@ -26,20 +26,30 @@
 		</form>
 
 
-		<h1>Display Data Example</h1>
+		<%--<fmt:formatDate value="${message.registerdate}" pattern="yyyy-MM-dd HH:mm:ss" />--%>
+
 		<%
 		// データがデータベースなどから取得されたと仮定します
-		String storedData = "これは格納されたデータです。";
+		String storedData = "これは格納されたデータです!";
 
 		// データが空でない場合のみ表示
 		if (storedData != null && !storedData.isEmpty()) {
 		%>
 		<p>
-			<strong>格納されたデータ:</strong>
-			<%=storedData%></p>
-		<%
-		} else {
-		%>
+			<strong>過去の投稿</strong><br>
+			<c:forEach var="message" items="${requestScope.messages}">
+				<div style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333; border-radius: 10px;">
+
+					<c:out value="${message.title}" />
+					<c:out value="${message.content}" />
+					<br>
+
+				</div>
+			</c:forEach>
+			<%
+			} else {
+			%>
+		
 		<p>データはありません。</p>
 		<%
 		}

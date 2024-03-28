@@ -15,9 +15,9 @@ public class BusinessLogicException extends RuntimeException{
 	        this.errorMessages = new ArrayList<>();
 	    }
 
-//	    public void addErrorMessage(String errorMessage) {
-//	        errorMessages.add(errorMessage);
-//	    }
+	    public void addErrorMessage(String errorMessage) {
+	        errorMessages.add(errorMessage);
+	    }
 
 	    public List<String> getErrorMessages() {
 	        return errorMessages;

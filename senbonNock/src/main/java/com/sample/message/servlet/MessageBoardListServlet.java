@@ -5,6 +5,7 @@
 package com.sample.message.servlet;
 
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.List;
 
 import com.sample.message.business.MessageBoardBusinessLogic;
@@ -31,36 +32,28 @@ public class MessageBoardListServlet extends HttpServlet {
 
 		//リクエストパラメータの取得
 		String title = request.getParameter("title");
-		
+
 		String content = request.getParameter("content");
-		//Timestamp registerDate  = request.getParameter("registerDate");
-		
-		// メッセージを作成
-//        Message message = new Message();
-//        message.setTitle(title);
-//        message.setContent(content);
+		Timestamp registerdate  = null;
 
-        // メッセージを保存
-//        messageService.saveMessage(message);
+		// すべてのメッセージを取得(メッセージ検索)
+		List<MessageEntity> messages = MessageBoardBusinessLogic.searchMessage();
+		System.out.println("サーブレットに戻ってきた!");
+		System.out.println(messages);
 
-        // すべてのメッセージを取得(メッセージ検索)
-        List<MessageEntity> messages = MessageBoardBusinessLogic.searchMessage();
-	        System.out.println("サーブレットに戻ってきた!");
-	        System.out.println(messages);
-        //メッセージを登録
-        MessageBoardBusinessLogic.registerMessage();
-        
+		//メッセージを登録
+		MessageBoardBusinessLogic.registerMessage(title, content,registerdate);
 
 		//リクエストオブジェクトにリクエストパラメーターを格納
 		request.setAttribute("messages", messages);
 		
-		// フォワード（画面遷移）する。
-		 //getServletContext().getRequestDispatcher("/jsp/defaultMenu.jsp").forward(request, response);
-		
+		System.out.println(registerdate);
+		//フォワード（画面遷移）する。
+		//getServletContext().getRequestDispatcher("/jsp/defaultMenu.jsp").forward(request, response);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/defaultMenu.jsp");
 		dispatcher.forward(request, response);
 		System.out.println("フォワード");
-
+		
 	}
 
 }
