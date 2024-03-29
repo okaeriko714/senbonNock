@@ -23,7 +23,6 @@ public class DBManager {
 		Connection con = null;
 		
 		try {
-//			 #lass.forName("com.mysql.jdbc.Driver");
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = DriverManager.getConnection(url, user, password);
 			System.out.println("DBへ接続成功！");

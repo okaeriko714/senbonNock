@@ -19,7 +19,7 @@
 
 		<c:forEach var="errorMessage" items="${requestScope.errorMessages}">
 			<p>
-				<c:out value="${errorMessages}" />
+				<c:out value="${errorMessage}" />
 			</p>
 		</c:forEach>
 
@@ -34,13 +34,14 @@
 					<td>投稿内容(100字以内)</td>
 					<td><input type="text" name="content"></td>
 				</tr>
+
 			</table>
 			</br> <input type="hidden" name="backAnchorName" value="2-1"> <input
 				type="submit" value="送信">
 		</form>
 
 
-		<%--<fmt:formatDate value="${message.registerdate}" pattern="yyyy-MM-dd HH:mm:ss" />--%>
+
 		</br> </br> <strong>過去の投稿</strong><br> <br>
 		<c:forEach var="message" items="${requestScope.messages}">
 			<div
@@ -48,6 +49,9 @@
 				<c:out value="${message.title}" />
 				<br>
 				<c:out value="${message.content}" />
+				<br>
+				<fmt:formatDate value="${message.registerdate}"
+					pattern="yyyy-MM-dd HH:mm:ss" />
 				<br>
 
 			</div>

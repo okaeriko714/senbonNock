@@ -41,15 +41,13 @@ public class MessageDao {
 				message.setRegisterDate(res.getTimestamp("REGISTERDATE"));
 				messages.add(message);
 				System.out.println("データ取得したよ");
-				//						res.getString("TITLE"),
-				//						res.getString("CONTENT"),
-				//						res.getTimestamp("REGISTERDATE"));
+			
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("ここ");
 			throw e;
-			
+
 			// エラーハンドリング
 		} finally {
 			if (res != null) {
@@ -71,54 +69,12 @@ public class MessageDao {
 		stmt.setString(1, entity.getTitle());
 		stmt.setString(2, entity.getContent());
 		//stmt.setTimestamp(3, entity.getRegisterDate() );
-		
+
 		System.out.println(stmt);
-		
+
 		//SQL文の実行
 		int res = stmt.executeUpdate();
-		//stmt.setRegisterDate(res.getTimestamp("REGISTERDATE"));
 
-		//		try {
-		//			stmt = con.prepareStatement(sql);
-		//			ResultSet res = stmt.executeQuery();
-
-		//			if (res.next()) {
-		//				messsage = new Message(
-		//						res.getString("TITLE"),
-		//						res.getString("CONTENT"),
-		//						res.getTimestamp("REGISTERDATE"));
-		//			}
-		//		} catch (SQLException e) {
-		//            e.printStackTrace();
-		//            throw e;
-		//            // エラーハンドリング
-		//		}finally {
-		//			if (res != null) {
-		//				res.close();
-		//			}
-		//			if (stmt != null) {
-		//				stmt.close();
-		//			}
-		//		}
-		//		return message;
 	}
-
-	//SQL実行オブジェクト生成
-	//PreparedStatement stmt = con.prepareStatement(sql);
-	//SQL実行
-	//ResultSet rs = stmt.executeQuery();
-	//SQL実行結果からデータを取得
-	//List<MessageEntity> list = new ArrayList<>();
-
-	//		//メッセージ検索
-	//		public ArrayList<MessageEntity> findAllItem() throws SQLException {
-	//			ArrayList<MessageEntity> proList = new ArrayList<>();
-	//			String sql = "SELECT * FROM message";
-	//			PreparedStatement stmt = null;
-	//			ResultSet res = null;
-	//			
-	//			return proList;
-	//
-	//		}
 
 }

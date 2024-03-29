@@ -30,8 +30,6 @@ public class MessageBoardBusinessLogic {
 			messages = messageDao.getMessageList(con);
 
 			//検索結果がない場合、エラーを発生させる。
-			//今回は発生させない
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -48,20 +46,19 @@ public class MessageBoardBusinessLogic {
 
 	}
 
-	//メッセージを登録する bean削除した
+	//メッセージを登録する
 	public static List<String> registerMessage(String title, String content) {
 		Connection con = null;
 		//		List<MessageEntity> messages = null;
 		Timestamp registerdate = null;
-		
+
 		//入力チェック
 		List<String> errorMessages = MessageBoardRegisterCheck.checkInputData(title, content);
-		
+
 		System.out.println("★" + errorMessages.size());
 		if (errorMessages.size() == 0) {
 			System.out.println("入力チェックのIF文の中はいった");
 
-			//タイトル　日付までを入れて、entityの作成★
 			MessageEntity entity = new MessageEntity(title, content, registerdate);
 
 			try {
@@ -73,11 +70,10 @@ public class MessageBoardBusinessLogic {
 				messageDao.register(con, entity);
 
 				//検索結果がない場合、エラーを発生させる。
-				//今回は発生させない
 
 			} catch (SQLException e) {
 				e.printStackTrace();
-				
+
 			} finally {
 				try {
 					if (con != null) {

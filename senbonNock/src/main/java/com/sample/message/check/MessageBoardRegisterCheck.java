@@ -16,7 +16,8 @@ public class MessageBoardRegisterCheck {
 
 		System.out.println("1:" + errorMessages.size());
 		//正規表現パターンを定義
-		String pattern = "^[^ -~｡-ﾟ]"+"^[ァ-ヴー]+$";
+		String pattern = "^[^ -~｡-ﾟ]+";
+//				"^[^ -~｡-ﾟ]+";
 		
 
 		// Check title
