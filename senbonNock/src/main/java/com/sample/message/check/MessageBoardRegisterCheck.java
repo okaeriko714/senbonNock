@@ -9,7 +9,6 @@ import java.util.List;
 
 public class MessageBoardRegisterCheck {
 
-	
 	public static List<String> checkInputData(String title, String content) {
 		// Initialize an empty list to store error messages
 		List<String> errorMessages = new ArrayList<>();
@@ -17,33 +16,26 @@ public class MessageBoardRegisterCheck {
 		System.out.println("1:" + errorMessages.size());
 		//正規表現パターンを定義
 		String pattern = "^[^ -~｡-ﾟ]+";
-//				"^[^ -~｡-ﾟ]+";
-		
 
 		// Check title
 		if (title.isEmpty()) {
-			errorMessages.add("1.タイトルを入力してください。");
-			System.out.println("2:" + errorMessages.size());
+			errorMessages.add("タイトルを入力してください。");
 		} else {
 			// Check if title contains only full-width characters
 			boolean isFullWidth = title.matches(pattern);
 			if (!isFullWidth) {
-				errorMessages.add("2. タイトルは全角文字で入力してください。");
-				System.out.println("3:" + errorMessages.size());
+				errorMessages.add("タイトルは全角文字で入力してください。");
 			}
 			if (title.length() > 20) {
-				errorMessages.add("3. タイトルは２０字以内で入力してください。");
-				System.out.println("4:" + errorMessages.size());
+				errorMessages.add("タイトルは２０字以内で入力してください。");
 			}
 		}
 
 		// Check content
 		if (content.isEmpty()) {
-			errorMessages.add("1. 投稿内容を入力してください。");
-			System.out.println("5:" + errorMessages.size());
+			errorMessages.add("投稿内容を入力してください。");
 		} else if (content.length() > 100) {
-			errorMessages.add("2. 投稿内容は１００字以内で入力してください。");
-			System.out.println("6:" + errorMessages.size());
+			errorMessages.add("投稿内容は１００字以内で入力してください。");
 		}
 
 		return errorMessages;

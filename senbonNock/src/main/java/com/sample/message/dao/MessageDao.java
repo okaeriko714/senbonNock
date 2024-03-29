@@ -25,7 +25,7 @@ public class MessageDao {
 	public List<MessageEntity> getMessageList(Connection con) throws SQLException {
 
 		String sql = "SELECT * FROM MESSAGE";
-		System.out.println("格納したメッセージを取得するSQL実行されたよ");
+		System.out.println("メッセージを取得するSQL実行");
 		PreparedStatement stmt = null;
 		ResultSet res = null;
 		List<MessageEntity> messages = new ArrayList<>();
@@ -40,12 +40,9 @@ public class MessageDao {
 				message.setContent(res.getString("CONTENT"));
 				message.setRegisterDate(res.getTimestamp("REGISTERDATE"));
 				messages.add(message);
-				System.out.println("データ取得したよ");
-			
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("ここ");
 			throw e;
 
 			// エラーハンドリング
@@ -64,7 +61,7 @@ public class MessageDao {
 	public void register(Connection con, MessageEntity entity) throws SQLException {
 
 		String sql = "INSERT INTO MESSAGE VALUES(default,?,?,CURRENT_TIME)";
-		System.out.println("格納したメッセージを登録するSQL実行されたよ!");
+		System.out.println("メッセージを登録するSQL実行");
 		PreparedStatement stmt = con.prepareStatement(sql);
 		stmt.setString(1, entity.getTitle());
 		stmt.setString(2, entity.getContent());
