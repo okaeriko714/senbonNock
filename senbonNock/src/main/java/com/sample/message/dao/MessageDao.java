@@ -40,7 +40,7 @@ public class MessageDao {
 				message.setContent(res.getString("CONTENT"));
 				message.setRegisterDate(res.getTimestamp("REGISTERDATE"));
 				messages.add(message);
-				System.out.println("データ格納したよ");
+				System.out.println("データ取得したよ");
 				//						res.getString("TITLE"),
 				//						res.getString("CONTENT"),
 				//						res.getTimestamp("REGISTERDATE"));

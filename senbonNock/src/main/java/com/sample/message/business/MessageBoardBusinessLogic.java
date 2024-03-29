@@ -47,46 +47,48 @@ public class MessageBoardBusinessLogic {
 		return messages;
 
 	}
-	
-	
-	
-	
 
 	//メッセージを登録する bean削除した
-	public static void registerMessage(String title,String content,Timestamp registerdate) {
+	public static List<String> registerMessage(String title, String content) {
 		Connection con = null;
-//		List<MessageEntity> messages = null;
+		//		List<MessageEntity> messages = null;
+		Timestamp registerdate = null;
 		
 		//入力チェック
-		MessageBoardRegisterCheck.checkInputData(title, content);
-		System.out.println("入力チェックまで何とかできたよ");
+		List<String> errorMessages = MessageBoardRegisterCheck.checkInputData(title, content);
 		
-		//Timestamp registerdate = null;
-		//タイトル　日付までを入れて、entityの作成★
-		MessageEntity entity = new MessageEntity(title, content, registerdate); 
-		
-		try {
-			//データベースの接続を取得する
-			con = DBManager.getConnection();
+		System.out.println("★" + errorMessages.size());
+		if (errorMessages.size() == 0) {
+			System.out.println("入力チェックのIF文の中はいった");
 
-			//メッセージテーブルアクセス用のDAOを生成し、メソッドを呼び出す。
-			MessageDao messageDao = new MessageDao(con);
-			messageDao.register(con, entity);
+			//タイトル　日付までを入れて、entityの作成★
+			MessageEntity entity = new MessageEntity(title, content, registerdate);
 
-			//検索結果がない場合、エラーを発生させる。
-			//今回は発生させない
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
 			try {
-				if (con != null) {
-					con.close();
-				}
+				//データベースの接続を取得する
+				con = DBManager.getConnection();
+
+				//メッセージテーブルアクセス用のDAOを生成し、メソッドを呼び出す。
+				MessageDao messageDao = new MessageDao(con);
+				messageDao.register(con, entity);
+
+				//検索結果がない場合、エラーを発生させる。
+				//今回は発生させない
+
 			} catch (SQLException e) {
 				e.printStackTrace();
+				
+			} finally {
+				try {
+					if (con != null) {
+						con.close();
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 			}
 		}
-
+		System.out.println("入力チェックのIF文の中はいれなかったよ");
+		return errorMessages;
 	}
 }

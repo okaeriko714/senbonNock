@@ -5,10 +5,10 @@
 package com.sample.message.servlet;
 
 import java.io.IOException;
-import java.sql.Timestamp;
 import java.util.List;
 
 import com.sample.message.business.MessageBoardBusinessLogic;
+import com.sample.message.check.MessageBoardRegisterCheck;
 import com.sample.message.dao.MessageEntity;
 
 import jakarta.servlet.RequestDispatcher;
@@ -34,26 +34,25 @@ public class MessageBoardListServlet extends HttpServlet {
 		String title = request.getParameter("title");
 
 		String content = request.getParameter("content");
-		Timestamp registerdate  = null;
+
+		//メッセージを登録
+		MessageBoardBusinessLogic.registerMessage(title, content);
+		List<String> errorMessages = MessageBoardRegisterCheck.checkInputData(title,content);
 
 		// すべてのメッセージを取得(メッセージ検索)
 		List<MessageEntity> messages = MessageBoardBusinessLogic.searchMessage();
 		System.out.println("サーブレットに戻ってきた!");
-		System.out.println(messages);
-
-		//メッセージを登録
-		MessageBoardBusinessLogic.registerMessage(title, content,registerdate);
+		System.out.println("messagesに格納されているデータ：" + messages);
 
 		//リクエストオブジェクトにリクエストパラメーターを格納
 		request.setAttribute("messages", messages);
+		request.setAttribute("errorMessages", errorMessages);
 		
-		System.out.println(registerdate);
 		//フォワード（画面遷移）する。
-		//getServletContext().getRequestDispatcher("/jsp/defaultMenu.jsp").forward(request, response);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/defaultMenu.jsp");
 		dispatcher.forward(request, response);
 		System.out.println("フォワード");
-		
+
 	}
 
 }
